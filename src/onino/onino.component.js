@@ -1,109 +1,38 @@
-import React, { Component, Fragment } from 'react';
-// import PropTypes from 'prop-types'
+import React from "react";
+import ReactiveLayout from "reactive-layout";
+import { withData } from "reactive-layout";
 
-import bg from "./images/ecran.jpg"
+import bg from "./images/ecran.jpg";
 
-import Banner from './templates/banner.template'
-import Offers from './templates/offers.template';
+// import Banner from "./templates/banner.template";
+import Offers from "./templates/offers.template";
+import textsFr from "./data/texts-fr.json";
+import textsEn from "./data/texts-en.json";
 
-import withData from './services/with-data'
-import withTheme from './services/with-theme'
-import Screen from './components/screen.layout'
+// const data = {
+//   texts: {
+//     fr: textsFr,
+//     en: textsEn,
+//   },
+//   components: [Banner, Offers],
+//   bgs: [bg, bg],
+// };
+const Comp1 = () => <div> Composant 1 </div>;
+const Comp2 = () => <div> Composant 2 </div>;
+const Comp3 = () => <div> Composant 3 </div>;
+const Comp4 = () => <div> Composant 4 </div>;
+const Comp5 = () => <div> Composant 5 </div>;
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      isDetailOpen: false,
-      detailIndex: 0,
-      selectedId: "0"
-    }
-  }
+const data = {
+  texts: {
+    fr: textsFr,
+    en: textsEn,
+  },
+  lng: "en",
+  components: [Comp1, Offers, Comp3, Comp4, Comp5],
+  bgs: [bg, bg, bg, bg, bg],
+};
 
-  handleTabChange = (newId, prevId, e) => {
-    this.setState({
-      selectedId: newId
-    })
-    this.scroll(parseInt(newId, 10))
-  }
+const WithData = withData(data)(ReactiveLayout);
 
-  scroll = (index) => {
-    const target = document.getElementById('root').children[index + 1]
-    window.scrollTo({
-      'behavior': 'smooth',
-      'left': 0,
-      'top': target.offsetTop
-    })
-  }
-
-  scrollNext = () => {
-    const selectedId = parseInt(this.state.selectedId, 10)
-    const newId = selectedId + 1
-    this.setState({
-      selectedId: newId.toString()
-    })
-    this.scroll(newId)
-  }
-
-  scrollPrev = () => {
-    const selectedId = parseInt(this.state.selectedId, 10)
-    const newId = selectedId - 1
-    this.setState({
-      selectedId: newId.toString()
-    })
-    this.scroll(newId)
-  }
-
-
-  openDetails = (index) => {
-    this.setState({
-      isDetailOpen: true,
-      detailIndex: index,
-    })
-  }
-
-  closeDetails = () => {
-    this.setState({
-      isDetailOpen: false
-    })
-  }
-
-  submitForm = (e) => {
-    e.preventDefault()
-  }
-
-  render() {
-    return (
-      <Fragment>
-        <Screen
-          index={0}
-          bg={bg}
-          scrollNext={this.scrollNext}
-          scrollPrev={this.scrollPrev}
-          secondary>
-          <Banner />
-        </Screen>
-        <Screen
-          index={1}
-          scrollNext={this.scrollNext}
-          scrollPrev={this.scrollPrev}
-          bg={bg}
-          secondary>
-          <Offers />
-        </Screen>
-      </Fragment>
-    );
-  }
-}
-
-App.propTypes = {
-  // defaultLanguage: PropTypes.string,
-}
-
-
-const WithTheme = withTheme()(App)
-const WithData = withData()(WithTheme)
-
-export default WithData
-
-
+export default WithData;

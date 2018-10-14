@@ -16,7 +16,6 @@ class Offers extends Component {
   }
 
   componentDidMount(){
-  
   }
 
   render() {
