@@ -18,7 +18,7 @@ import Banner from "./templates/banner.template";
 //   components: [Banner, Offers],
 //   bgs: [bg, bg],
 // };
-const Comp3 = () => <div> Composant 3 </div>;
+const Comp3 = () => <div> The Composant 3 </div>;
 const Comp4 = () => <div> Composant 4 </div>;
 const Comp5 = () => <div> Composant 5 </div>;
 
