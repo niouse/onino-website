@@ -8,6 +8,7 @@ import bg from "./images/ecran.jpg";
 import Offers from "./templates/offers.template";
 import textsFr from "./data/texts-fr.json";
 import textsEn from "./data/texts-en.json";
+import Banner from "./templates/banner.template";
 
 // const data = {
 //   texts: {
@@ -17,8 +18,6 @@ import textsEn from "./data/texts-en.json";
 //   components: [Banner, Offers],
 //   bgs: [bg, bg],
 // };
-const Comp1 = () => <div> Composant 1 </div>;
-const Comp2 = () => <div> Composant 2 </div>;
 const Comp3 = () => <div> Composant 3 </div>;
 const Comp4 = () => <div> Composant 4 </div>;
 const Comp5 = () => <div> Composant 5 </div>;
@@ -29,7 +28,7 @@ const data = {
     en: textsEn,
   },
   lng: "en",
-  components: [Comp1, Offers, Comp3, Comp4, Comp5],
+  components: [Banner, Offers, Comp3, Comp4, Comp5],
   bgs: [bg, bg, bg, bg, bg],
 };
 
