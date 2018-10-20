@@ -3,3 +3,4 @@
 /coverage
 /.vscode
 /server/node_modules
+/server/public
