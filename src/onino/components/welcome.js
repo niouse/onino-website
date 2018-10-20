@@ -1,14 +1,17 @@
 import React from "react";
-// import PropTypes from "prop-types";
-
-import { BigText, Title1 } from "./../components/styled-components";
 import styled from "styled-components";
 
-const BgBox = styled.div`
+const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
+  color: #ffffff;
+`;
+
+export const BigText = styled.strong`
+  font-size: 4em;
+  font-weight: bold;
 `;
 
 const CenterBox = styled.div`
@@ -19,7 +22,8 @@ const CenterBox = styled.div`
   justify-content: center;
 `;
 
-const Title = Title1.extend`
+const Title = styled.div`
+  font-size: 1.5em;
   text-align: center;
   padding: 10px 0px 10px 0px;
 `;
@@ -31,14 +35,14 @@ const P = styled.p`
 
 const Banner = () => {
   return (
-    <BgBox>
+    <Container>
       <CenterBox>
         <BigText>Onino.js</BigText>
         <Title>Fullstack javascript </Title>
         <Title>Development</Title>
         <P>( Site en construction )</P>
       </CenterBox>
-    </BgBox>
+    </Container>
   );
 };
 

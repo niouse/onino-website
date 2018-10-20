@@ -1,11 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MyCv from "./onino/onino.component";
+import Onino from "./onino/onino.component";
 
-// import "@blueprintjs/core/lib/css/blueprint.css";
-// import "@blueprintjs/icons/lib/css/blueprint-icons.css";
-
-ReactDOM.render(
-  <MyCv defaultLanguage="fr" id="root" />,
-  document.getElementById("root"),
-);
+ReactDOM.render(<Onino />, document.getElementById("root"));
